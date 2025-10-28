@@ -179,7 +179,12 @@ function Transparency() {
   );
 }
 
-function Stat({ title, value }) {
+type StatProps = {
+  title: string;
+  value: string | number;
+};
+
+function Stat({ title, value }: StatProps) {
   return (
     <div className="p-4 bg-white border border-gray-100 rounded-lg text-center">
       <div className="text-xl font-bold">{value}</div>
@@ -187,6 +192,8 @@ function Stat({ title, value }) {
     </div>
   );
 }
+
+
 
 function Roadmap() {
   return (
@@ -209,13 +216,13 @@ function Join() {
   const [role, setRole] = React.useState('Investor');
   const [email, setEmail] = React.useState('');
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    // lightweight action: opens mail client with filled details for now
-    const subject = encodeURIComponent(`Join Agri-Build: ${role} - ${name}`);
-    const body = encodeURIComponent(`Name: ${name}%0ARole: ${role}%0AEmail: ${email}%0A`);
-    window.location.href = `mailto:info@agribuild.org?subject=${subject}&body=${body}`;
-  }
+function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  e.preventDefault();
+  const subject = encodeURIComponent(`Join Agri-Build: ${role} - ${name}`);
+  const body = encodeURIComponent(`Name: ${name}%0ARole: ${role}%0AEmail: ${email}%0A`);
+  window.location.href = `mailto:info@agribuild.org?subject=${subject}&body=${body}`;
+}
+
 
   return (
     <section id="join" className="mt-6">
