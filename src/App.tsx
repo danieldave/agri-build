@@ -220,7 +220,7 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   e.preventDefault();
   const subject = encodeURIComponent(`Join Agri-Build: ${role} - ${name}`);
   const body = encodeURIComponent(`Name: ${name}%0ARole: ${role}%0AEmail: ${email}%0A`);
-  window.location.href = `mailto:info@agribuild.org?subject=${subject}&body=${body}`;
+  window.location.href = `mailto:edlytsolutions@gmail.com?subject=${subject}&body=${body}`;
 }
 
 
